@@ -14,7 +14,7 @@ class BooksView(generic.ListView):
 
 	def get_queryset(self):
 		"""Return a list of all the books"""
-		return Book.objects.orderBy('-author')
+		return Book.objects.all()
 
 class BookView(generic.DetailView):
 	model = Book
