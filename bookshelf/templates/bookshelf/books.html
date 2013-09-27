@@ -1,0 +1,24 @@
+{% block content %}
+    <h2>Books</h2>
+    <table>
+    	<tbody>
+    		<tr>
+    			<th>Title</th>
+    			<th>Author</th>
+    			<th>Pub. Date</th>
+    			<th>Genre</th>
+    		</tr>
+        {% for book in book_list %}
+        	<tr>
+            	<td><a href="/bookshelf/book/{{book.id}}">{{ book.title }}</a></td>
+            	<td>
+            	{% for author in book.writers.all %}
+            	{{ author.name }}
+            	{% endfor %}
+            	</td>
+            	<td>{{ book.pub_date }}</td>
+            	<td>{{ book.genre }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
